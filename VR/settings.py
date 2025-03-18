@@ -25,7 +25,7 @@ SECRET_KEY = 'myx989#a+wk&-(&e$2(tji60a_x3v1b9a949p&*^q3!&v&!w=z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['druginfo-ont8.onrender.com']
+ALLOWED_HOSTS = ['druginfo-ont8.onrender.com','*']
 
 
 # Application definition
