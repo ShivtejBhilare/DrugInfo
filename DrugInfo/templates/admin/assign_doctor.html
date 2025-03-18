@@ -1,0 +1,45 @@
+{% extends "admin/base.html" %}
+{% block content %}
+<nav id="breadcrumbs" class="breadcrumbs">
+    <div class="container page-wrapper">
+        <a href="login">Logout</a> » <span class="breadcrumb_last" aria-current="page">Assign Doctor</span>
+    </div>
+</nav>
+<section class="w3l-contact-main">
+    <div class="contact-infhny py-5">
+        <div class="container py-lg-5">
+            <div class="title-content text-left mb-lg-5 mt-4">
+                <h6 class="sub-title">Assign Doctor</h6>
+                <h3 class="hny-title">Innovation Beyond Imagination.</h3>
+            </div>
+            <div class="row align-form-map">
+                <div class="col-lg-8 form-inner-cont">
+                    <form method="post" class="signin-form">
+                        {%csrf_token%}
+                        <div class="form-input">
+                            <label>Drug*</label>
+                            <select name="drug" class="form-control" required>
+                                {%for drug in drugs %}
+                                <option value="{{drug.name}}">{{drug.name}}</option>
+                                {%endfor%}
+                            </select>
+                        </div>
+                        <div class="form-input">
+                            <label>Doctor*</label>
+                            <select name="doctor" class="form-control" required>
+                                {%for doctor in doctors %}
+                                <option value="{{doctor.id}}">{{doctor.name}} {{doctor.mobile}}</option>
+                                {%endfor%}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-contact">Assign Doctor</button>
+                        <div class="form-input">
+                            <label class="text-info">{{message}}</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

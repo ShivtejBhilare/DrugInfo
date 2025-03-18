@@ -1,0 +1,67 @@
+{% extends "admin/base.html" %}
+{% block content %}
+<nav id="breadcrumbs" class="breadcrumbs">
+    <div class="container page-wrapper">
+        <a href="login">Logout</a> » <span class="breadcrumb_last" aria-current="page">Add Drug</span>
+    </div>
+</nav>
+<section class="w3l-contact-main">
+    <div class="contact-infhny py-5">
+        <div class="container py-lg-5">
+            <div class="title-content text-left mb-lg-5 mt-4">
+                <h6 class="sub-title">Add Drug</h6>
+                <h3 class="hny-title">Innovation Beyond Imagination.</h3>
+            </div>
+            <div class="row align-form-map">
+                <div class="col-lg-8 form-inner-cont">
+                    <form method="post" enctype="multipart/form-data" class="signin-form">
+                        {%csrf_token%}
+                         <div class="form-input">
+                            <label>Photo*</label>
+                            <input type="file" name="photo" accept="image/jpeg" required>
+                        </div>
+                        <div class="form-input">
+                            <label>Name*</label>
+                            <input type="text" name="name" required>
+                        </div>
+                         <div class="form-input">
+                            <label>Info</label>
+                            <textarea name="info" required></textarea>
+                        </div>
+                        <div class="form-input">
+                            <label>Side Effects*</label>
+                        </div>
+                        <div class="form-input">
+                            <label>On Child*</label>
+                            <textarea name="child" required></textarea>
+                        </div>
+                        <div class="form-input">
+                            <label>On Adult*</label>
+                            <textarea name="adult" required></textarea>
+                        </div>
+                        <div class="form-input">
+                            <label>On Pregnant or Breastfeeding Women*</label>
+                            <textarea name="women" required></textarea>
+                        </div>
+                        <div class="form-input">
+                            <label>Banned?*</label>
+                            <select name="banned" class="form-control" required>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="form-input">
+                            <label>Why?</label>
+                            <textarea name="why"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-contact">Add Drug</button>
+                        <div class="form-input">
+                            <label class="text-info">{{message}}</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
