@@ -1,0 +1,13 @@
+{
+    "builds": [{
+        "src": "DrugInfo/VR/wsgi.py",
+        "use": "@ardnt/vercel-python-wsgi",
+        "config": { "maxLambdaSize": "15mb" }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "DrugInfo/VR/wsgi.py"
+        }
+    ]
+}
