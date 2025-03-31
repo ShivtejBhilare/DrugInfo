@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'VR.wsgi.application'
 # }
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL')
+        default=os.getenv('postgresql://drug_info_db_user:x5GTbTSlsWe4beH2G3A7YL1sceTDmAhE@dpg-cvl5jj9r0fns7389o710-a/drug_info_db')
     )
 }
 
