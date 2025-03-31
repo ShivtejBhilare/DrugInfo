@@ -82,9 +82,15 @@ WSGI_APPLICATION = 'VR.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'dbDrug.sqlite3'),
 #     }
 # }
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.getenv('postgresql://drug_info_db_user:x5GTbTSlsWe4beH2G3A7YL1sceTDmAhE@dpg-cvl5jj9r0fns7389o710-a.oregon-postgres.render.com/drug_info_db')
+#     )
+# }
+
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('postgresql://drug_info_db_user:x5GTbTSlsWe4beH2G3A7YL1sceTDmAhE@dpg-cvl5jj9r0fns7389o710-a.oregon-postgres.render.com/drug_info_db')
+        default='sqlite:///{}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))  # Fallback to SQLite
     )
 }
 
