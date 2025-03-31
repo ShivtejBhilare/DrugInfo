@@ -21,12 +21,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'myx989#a+wk&-(&e$2(tji60a_x3v1b9a949p&*^q3!&v&!w=z'
+# SECRET_KEY = 'myx989#a+wk&-(&e$2(tji60a_x3v1b9a949p&*^q3!&v&!w=z'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = ['druginfo-ont8.onrender.com','*','127.0.0.1']
+# ALLOWED_HOSTS = ['druginfo-ont8.onrender.com','*','127.0.0.1']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(' ')
 
 
 # Application definition
@@ -88,11 +90,21 @@ WSGI_APPLICATION = 'VR.wsgi.application'
 #     )
 # }
 
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default='sqlite:///{}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))  # Fallback to SQLite
+#     )
+# }
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///{}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))  # Fallback to SQLite
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'dbDrug.sqlite3'),
+    }
 }
+
+database_url=os.environ.get("DATABASE_URL")
+DATABASES['default']=dj_database_url.parse(database_url)
 
 
 
