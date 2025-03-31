@@ -94,7 +94,7 @@ DATABASES = {
     )
 }
 
-DATABASE_URL=postgres://drug_info_db_user:x5GTbTSlsWe4beH2G3A7YL1sceTDmAhE@dpg-cvl5jj9r0fns7389o710-a:5432/drug-info-db
+
 
 
 # Password validation
